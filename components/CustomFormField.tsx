@@ -1,19 +1,18 @@
-import React from 'react';
+import React from "react";
 import {
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
-  FormDescription,
   FormControl,
-} from './ui/form';
-import { Input } from './ui/input';
-import { Control } from 'react-hook-form';
-import { FormFieldType } from './forms/PatientForm';
-import Image from 'next/image';
+} from "./ui/form";
+import { Input } from "./ui/input";
+import { Control } from "react-hook-form";
+import { FormFieldType } from "./forms/PatientForm";
+import Image from "next/image";
 
-import 'react-phone-number-input/style.css';
-import PhoneInput from 'react-phone-number-input';
+import "react-phone-number-input/style.css";
+import PhoneInput from "react-phone-number-input";
 
 interface CustomProps {
   control: Control<any>;
@@ -38,10 +37,20 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
       return (
         <div className="flex rounded-md border border-dark-500 bg-dark-400">
           {iconSrc && (
-            <Image src={iconSrc} alt={iconAlt || 'icon'} width={24} height={24} className="ml-2" />
+            <Image
+              src={iconSrc}
+              alt={iconAlt || "icon"}
+              width={24}
+              height={24}
+              className="ml-2"
+            />
           )}
           <FormControl>
-            <Input placeholder={placeholder} {...field} className="shad-input border-0" />
+            <Input
+              placeholder={placeholder}
+              {...field}
+              className="shad-input border-0"
+            />
           </FormControl>
         </div>
       );
@@ -77,7 +86,9 @@ const CustomFormField = (props: CustomProps) => {
       name={name}
       render={({ field }) => (
         <FormItem className="flex-1">
-          {fieldType !== FormFieldType.CHECKBOX && label && <FormLabel>{label}</FormLabel>}
+          {fieldType !== FormFieldType.CHECKBOX && label && (
+            <FormLabel>{label}</FormLabel>
+          )}
 
           <RenderField field={field} props={props} />
 
